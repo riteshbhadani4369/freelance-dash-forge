@@ -13,13 +13,29 @@ import {
   Shield,
   Home,
   Tag,
-  Activity
+  Activity,
+  ChevronDown,
+  ChevronRight
 } from "lucide-react"
 import { useState } from "react"
 
 interface AdminSidebarProps {
   activeSection: string
   onSectionChange: (section: string) => void
+}
+
+interface SubItem {
+  id: string
+  label: string
+  description: string
+}
+
+interface SidebarItem {
+  id: string
+  label: string
+  icon: any
+  description: string
+  subItems?: SubItem[]
 }
 
 const sidebarItems = [
@@ -33,19 +49,36 @@ const sidebarItems = [
     id: "users",
     label: "User Management",
     icon: Users,
-    description: "Clients & Freelancers"
+    description: "Clients & Freelancers",
+    subItems: [
+      { id: "users-list", label: "All Users", description: "User Directory" },
+      { id: "users-analytics", label: "User Analytics", description: "Engagement Metrics" },
+      { id: "users-verification", label: "Verification", description: "ID & Skill Verification" }
+    ]
   },
   {
     id: "jobs",
     label: "Jobs & Projects",
     icon: Briefcase,
-    description: "Manage Listings"
+    description: "Manage Listings",
+    subItems: [
+      { id: "jobs-active", label: "Active Jobs", description: "Current Projects" },
+      { id: "jobs-completed", label: "Completed", description: "Finished Projects" },
+      { id: "jobs-disputes", label: "Disputes", description: "Resolution Center" }
+    ]
   },
   {
     id: "transactions",
-    label: "Transactions",
+    label: "Financial Reports",
     icon: DollarSign,
-    description: "Reports & Logs"
+    description: "Transaction Analytics",
+    subItems: [
+      { id: "transactions-overview", label: "Overview", description: "Financial Summary" },
+      { id: "transactions-escrow", label: "Escrow Balance", description: "Held Funds" },
+      { id: "transactions-earnings", label: "User Earnings", description: "Spend Reports" },
+      { id: "transactions-commission", label: "Commission", description: "Platform Revenue" },
+      { id: "transactions-tax", label: "Tax Reports", description: "GST/VAT Breakdown" }
+    ]
   },
   {
     id: "categories",
@@ -80,6 +113,18 @@ const sidebarItems = [
 ]
 
 export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarProps) {
+  const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set())
+
+  const toggleExpanded = (itemId: string) => {
+    const newExpanded = new Set(expandedItems)
+    if (newExpanded.has(itemId)) {
+      newExpanded.delete(itemId)
+    } else {
+      newExpanded.add(itemId)
+    }
+    setExpandedItems(newExpanded)
+  }
+
   return (
     <div className="flex h-screen w-64 flex-col border-r border-card-border bg-card">
       {/* Header */}
@@ -101,32 +146,77 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
           {sidebarItems.map((item) => {
             const Icon = item.icon
             const isActive = activeSection === item.id
+            const isExpanded = expandedItems.has(item.id)
+            const hasSubItems = item.subItems && item.subItems.length > 0
             
             return (
-              <Button
-                key={item.id}
-                variant="ghost"
-                className={cn(
-                  "w-full justify-start gap-3 h-auto py-3 px-3",
-                  "hover:bg-background-secondary transition-colors",
-                  isActive && [
-                    "bg-primary text-primary-foreground shadow-sm",
-                    "hover:bg-primary-hover"
-                  ]
+              <div key={item.id} className="space-y-1">
+                <Button
+                  variant="ghost"
+                  className={cn(
+                    "w-full justify-start gap-3 h-auto py-3 px-3",
+                    "hover:bg-background-secondary transition-colors",
+                    isActive && [
+                      "bg-primary text-primary-foreground shadow-sm",
+                      "hover:bg-primary-hover"
+                    ]
+                  )}
+                  onClick={() => {
+                    if (hasSubItems) {
+                      toggleExpanded(item.id)
+                    } else {
+                      onSectionChange(item.id)
+                    }
+                  }}
+                >
+                  <Icon className="h-5 w-5 flex-shrink-0" />
+                  <div className="flex flex-col items-start text-left flex-1">
+                    <span className="text-sm font-medium">{item.label}</span>
+                    <span className={cn(
+                      "text-xs",
+                      isActive ? "text-primary-foreground/70" : "text-muted-foreground"
+                    )}>
+                      {item.description}
+                    </span>
+                  </div>
+                  {hasSubItems && (
+                    isExpanded ? 
+                      <ChevronDown className="h-4 w-4 flex-shrink-0" /> : 
+                      <ChevronRight className="h-4 w-4 flex-shrink-0" />
+                  )}
+                </Button>
+
+                {/* Sub Items */}
+                {hasSubItems && isExpanded && (
+                  <div className="ml-8 space-y-1">
+                    {item.subItems!.map((subItem) => {
+                      const isSubActive = activeSection === subItem.id
+                      return (
+                        <Button
+                          key={subItem.id}
+                          variant="ghost"
+                          className={cn(
+                            "w-full justify-start gap-2 h-auto py-2 px-3 text-sm",
+                            "hover:bg-background-secondary transition-colors",
+                            isSubActive && [
+                              "bg-primary/10 text-primary border-l-2 border-primary",
+                              "hover:bg-primary/20"
+                            ]
+                          )}
+                          onClick={() => onSectionChange(subItem.id)}
+                        >
+                          <div className="flex flex-col items-start text-left">
+                            <span className="text-sm font-medium">{subItem.label}</span>
+                            <span className="text-xs text-muted-foreground">
+                              {subItem.description}
+                            </span>
+                          </div>
+                        </Button>
+                      )
+                    })}
+                  </div>
                 )}
-                onClick={() => onSectionChange(item.id)}
-              >
-                <Icon className="h-5 w-5 flex-shrink-0" />
-                <div className="flex flex-col items-start text-left">
-                  <span className="text-sm font-medium">{item.label}</span>
-                  <span className={cn(
-                    "text-xs",
-                    isActive ? "text-primary-foreground/70" : "text-muted-foreground"
-                  )}>
-                    {item.description}
-                  </span>
-                </div>
-              </Button>
+              </div>
             )
           })}
         </div>

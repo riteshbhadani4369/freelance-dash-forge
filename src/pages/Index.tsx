@@ -8,6 +8,10 @@ import { CategoryManagementSection } from "@/components/dashboard/CategoryManage
 import { TransactionSection } from "@/components/dashboard/TransactionSection"
 import { SystemSettingsSection } from "@/components/dashboard/SystemSettingsSection"
 import { CMSManagementSection } from "@/components/dashboard/CMSManagementSection"
+import { EscrowBalanceSection } from "@/components/dashboard/EscrowBalanceSection"
+import { UserEarningsSection } from "@/components/dashboard/UserEarningsSection"
+import { CommissionReportsSection } from "@/components/dashboard/CommissionReportsSection"
+import { TaxReportsSection } from "@/components/dashboard/TaxReportsSection"
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("overview")
@@ -17,11 +21,28 @@ const Index = () => {
       case "overview":
         return <OverviewSection />
       case "users":
+      case "users-list":
+        return <UserManagementSection />
+      case "users-analytics":
+        return <UserEarningsSection />
+      case "users-verification":
         return <UserManagementSection />
       case "jobs":
+      case "jobs-active":
+      case "jobs-completed":
+      case "jobs-disputes":
         return <JobManagementSection />
       case "transactions":
+      case "transactions-overview":
         return <TransactionSection />
+      case "transactions-escrow":
+        return <EscrowBalanceSection />
+      case "transactions-earnings":
+        return <UserEarningsSection />
+      case "transactions-commission":
+        return <CommissionReportsSection />
+      case "transactions-tax":
+        return <TaxReportsSection />
       case "categories":
         return <CategoryManagementSection />
       case "support":

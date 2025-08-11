@@ -171,59 +171,37 @@ export function OverviewSection() {
           </CardContent>
         </Card>
 
-        {/* User Distribution */}
+        {/* Total Users PIE Chart */}
         <Card className="border-card-border shadow-sm">
           <CardHeader>
-            <CardTitle className="text-lg font-semibold text-card-foreground">User Distribution</CardTitle>
-            <CardDescription>Users by country (top 5 regions)</CardDescription>
+            <CardTitle className="text-lg font-semibold text-card-foreground">Total Users Distribution</CardTitle>
+            <CardDescription>User breakdown by role and status</CardDescription>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
-                  data={countryData}
+                  data={[
+                    { name: "Active Freelancers", value: 3450, color: "hsl(var(--success))" },
+                    { name: "Active Clients", value: 2890, color: "hsl(var(--info))" },
+                    { name: "Inactive Users", value: 1890, color: "hsl(var(--muted))" },
+                    { name: "Pending Verification", value: 526, color: "hsl(var(--warning))" }
+                  ]}
                   cx="50%"
                   cy="50%"
                   outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="users"
-                  label={({ country, users }) => `${country}: ${users}`}
+                  dataKey="value"
+                  label={({ name, value }) => `${name}: ${value}`}
                 >
-                  {countryData.map((entry, index) => (
+                  {[
+                    { color: "hsl(var(--success))" },
+                    { color: "hsl(var(--info))" },
+                    { color: "hsl(var(--muted))" },
+                    { color: "hsl(var(--warning))" }
+                  ].map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Additional Metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Technology Distribution */}
-        <Card className="border-card-border shadow-sm lg:col-span-2">
-          <CardHeader>
-            <CardTitle className="text-lg font-semibold text-card-foreground">Jobs by Technology</CardTitle>
-            <CardDescription>Most popular technology categories</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={250}>
-              <BarChart data={techData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis 
-                  dataKey="tech" 
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={11}
-                  angle={-45}
-                  textAnchor="end"
-                  height={80}
-                />
-                <YAxis 
-                  stroke="hsl(var(--muted-foreground))"
-                  fontSize={12}
-                />
                 <Tooltip 
                   contentStyle={{
                     backgroundColor: 'hsl(var(--card))',
@@ -231,13 +209,46 @@ export function OverviewSection() {
                     borderRadius: '8px'
                   }}
                 />
-                <Bar 
-                  dataKey="jobs" 
-                  fill="hsl(var(--accent))"
-                  radius={[4, 4, 0, 0]}
-                />
-              </BarChart>
+              </PieChart>
             </ResponsiveContainer>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Geographic and Tech Metrics */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Active Jobs Geographic Map */}
+        <Card className="border-card-border shadow-sm lg:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-lg font-semibold text-card-foreground">Active Jobs by Location</CardTitle>
+            <CardDescription>Geographic distribution of active projects</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="h-[250px] bg-gradient-to-br from-primary/5 to-info/5 rounded-lg border border-card-border flex items-center justify-center">
+              <div className="text-center space-y-4">
+                <div className="h-16 w-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center">
+                  <Globe className="h-8 w-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-card-foreground">Geographic Distribution</h3>
+                  <p className="text-muted-foreground text-sm">Interactive map visualization</p>
+                </div>
+                <div className="grid grid-cols-3 gap-4 mt-4">
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-info">456</p>
+                    <p className="text-xs text-muted-foreground">North America</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-success">342</p>
+                    <p className="text-xs text-muted-foreground">Europe</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-warning">234</p>
+                    <p className="text-xs text-muted-foreground">Asia Pacific</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </CardContent>
         </Card>
 
