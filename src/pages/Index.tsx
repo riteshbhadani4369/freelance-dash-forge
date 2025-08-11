@@ -7,6 +7,7 @@ import { SupportTicketsSection } from "@/components/dashboard/SupportTicketsSect
 import { CategoryManagementSection } from "@/components/dashboard/CategoryManagementSection"
 import { TransactionSection } from "@/components/dashboard/TransactionSection"
 import { SystemSettingsSection } from "@/components/dashboard/SystemSettingsSection"
+import { CMSManagementSection } from "@/components/dashboard/CMSManagementSection"
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("overview")
@@ -26,19 +27,9 @@ const Index = () => {
       case "support":
         return <SupportTicketsSection />
       case "cms":
-        return (
-          <div className="space-y-6">
-            <h1 className="text-3xl font-bold text-card-foreground">CMS & Page Management</h1>
-            <p className="text-muted-foreground">Content management features coming soon...</p>
-          </div>
-        )
+        return <CMSManagementSection />
       case "system":
-        return (
-          <div className="space-y-6">
-            <h1 className="text-3xl font-bold text-card-foreground">System Health</h1>
-            <p className="text-muted-foreground">System monitoring features coming soon...</p>
-          </div>
-        )
+        return <SystemSettingsSection />
       case "settings":
         return <SystemSettingsSection />
       default:
