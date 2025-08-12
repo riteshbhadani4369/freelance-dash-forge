@@ -52,7 +52,7 @@ const techData = [
 
 export function OverviewSection() {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-card-foreground">Dashboard Overview</h1>
@@ -62,8 +62,8 @@ export function OverviewSection() {
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="border-card-border shadow-sm hover:shadow-md transition-shadow">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-slide-in-up [animation-delay:0.1s]">
+        <Card className="border-card-border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Total Users</CardTitle>
             <Users className="h-4 w-4 text-info" />
@@ -80,7 +80,7 @@ export function OverviewSection() {
           </CardContent>
         </Card>
 
-        <Card className="border-card-border shadow-sm hover:shadow-md transition-shadow">
+        <Card className="border-card-border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Active Jobs</CardTitle>
             <Briefcase className="h-4 w-4 text-accent" />
@@ -97,7 +97,7 @@ export function OverviewSection() {
           </CardContent>
         </Card>
 
-        <Card className="border-card-border shadow-sm hover:shadow-md transition-shadow">
+        <Card className="border-card-border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Monthly Revenue</CardTitle>
             <DollarSign className="h-4 w-4 text-warning" />
@@ -114,7 +114,7 @@ export function OverviewSection() {
           </CardContent>
         </Card>
 
-        <Card className="border-card-border shadow-sm hover:shadow-md transition-shadow">
+        <Card className="border-card-border shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 hover:-translate-y-1">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">Support Tickets</CardTitle>
             <HeadphonesIcon className="h-4 w-4 text-destructive" />
@@ -132,9 +132,9 @@ export function OverviewSection() {
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 animate-slide-in-up [animation-delay:0.3s]">
         {/* Revenue Trend */}
-        <Card className="border-card-border shadow-sm">
+        <Card className="border-card-border shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
           <CardHeader>
             <CardTitle className="text-lg font-semibold text-card-foreground">Revenue Trend</CardTitle>
             <CardDescription>Monthly revenue and user growth over the past 6 months</CardDescription>
@@ -172,7 +172,7 @@ export function OverviewSection() {
         </Card>
 
         {/* Total Users PIE Chart */}
-        <Card className="border-card-border shadow-sm">
+        <Card className="border-card-border shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
           <CardHeader>
             <CardTitle className="text-lg font-semibold text-card-foreground">Total Users Distribution</CardTitle>
             <CardDescription>User breakdown by role and status</CardDescription>
@@ -216,9 +216,9 @@ export function OverviewSection() {
       </div>
 
       {/* Geographic and Tech Metrics */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-slide-in-up [animation-delay:0.5s]">
         {/* Active Jobs Geographic Map */}
-        <Card className="border-card-border shadow-sm lg:col-span-2">
+        <Card className="border-card-border shadow-sm lg:col-span-2 hover:shadow-lg transition-all duration-300 hover:scale-[1.02]">
           <CardHeader>
             <CardTitle className="text-lg font-semibold text-card-foreground">Active Jobs by Location</CardTitle>
             <CardDescription>Geographic distribution of active projects</CardDescription>
@@ -253,7 +253,7 @@ export function OverviewSection() {
         </Card>
 
         {/* System Health */}
-        <Card className="border-card-border shadow-sm">
+        <Card className="border-card-border shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
           <CardHeader>
             <CardTitle className="text-lg font-semibold text-card-foreground">System Health</CardTitle>
             <CardDescription>Current platform status</CardDescription>

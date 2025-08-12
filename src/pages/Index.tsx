@@ -70,7 +70,9 @@ const Index = () => {
         onSectionChange={setActiveSection}
       />
       <main className="flex-1 p-6 overflow-auto">
-        {renderContent()}
+        <div className="animate-fade-in">
+          {renderContent()}
+        </div>
       </main>
     </div>
   );

@@ -126,7 +126,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
   }
 
   return (
-    <div className="flex h-screen w-64 flex-col border-r border-card-border bg-card">
+    <div className="flex h-screen w-64 flex-col border-r border-card-border bg-card animate-slide-in-right">
       {/* Header */}
       <div className="flex h-16 items-center border-b border-card-border px-6">
         <div className="flex items-center gap-2">
@@ -155,7 +155,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
                   variant="ghost"
                   className={cn(
                     "w-full justify-start gap-3 h-auto py-3 px-3",
-                    "hover:bg-background-secondary transition-colors",
+                    "hover:bg-background-secondary transition-all duration-200 hover:scale-[1.02]",
                     isActive && [
                       "bg-primary text-primary-foreground shadow-sm",
                       "hover:bg-primary-hover"
@@ -188,7 +188,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
 
                 {/* Sub Items */}
                 {hasSubItems && isExpanded && (
-                  <div className="ml-8 space-y-1">
+                  <div className="ml-8 space-y-1 animate-fade-in">
                     {item.subItems!.map((subItem) => {
                       const isSubActive = activeSection === subItem.id
                       return (
@@ -197,7 +197,7 @@ export function AdminSidebar({ activeSection, onSectionChange }: AdminSidebarPro
                           variant="ghost"
                           className={cn(
                             "w-full justify-start gap-2 h-auto py-2 px-3 text-sm",
-                            "hover:bg-background-secondary transition-colors",
+                            "hover:bg-background-secondary transition-all duration-200 hover:translate-x-1",
                             isSubActive && [
                               "bg-primary/10 text-primary border-l-2 border-primary",
                               "hover:bg-primary/20"
