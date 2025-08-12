@@ -35,14 +35,24 @@
     --card-border: 165 43% 90%;
     
     /* Status Colors */
-    --success: 165 99% 36%;
+    --success: 142 71% 45%;
     --success-foreground: 0 0% 98%;
     --warning: 38 92% 50%;
     --warning-foreground: 0 0% 98%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
-    --info: 165 99% 36%;
+    --info: 214 88% 55%;
     --info-foreground: 0 0% 98%;
+    
+    /* Chart Color System - Consistent Palette */
+    --chart-primary: 165 99% 36%;
+    --chart-secondary: 142 71% 45%;
+    --chart-accent: 262 83% 58%;
+    --chart-warning: 38 92% 50%;
+    --chart-info: 214 88% 55%;
+    --chart-success: 142 71% 45%;
+    --chart-error: 0 72% 51%;
+    --chart-muted: 220 9% 65%;
     
     /* Input & Form Elements */
     --input: 165 43% 95%;
@@ -116,8 +126,18 @@
     --warning-foreground: 220 15% 25%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 220 13% 91%;
-    --info: 214 88% 45%;
+    --info: 214 88% 55%;
     --info-foreground: 220 15% 25%;
+    
+    /* Dark Mode Chart Colors */
+    --chart-primary: 165 99% 50%;
+    --chart-secondary: 142 71% 55%;
+    --chart-accent: 262 83% 68%;
+    --chart-warning: 38 92% 60%;
+    --chart-info: 214 88% 65%;
+    --chart-success: 142 71% 55%;
+    --chart-error: 0 72% 61%;
+    --chart-muted: 220 9% 45%;
     
     --input: 220 13% 18%;
     --border: 220 13% 18%;

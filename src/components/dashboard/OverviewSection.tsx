@@ -162,8 +162,8 @@ export function OverviewSection() {
                 <Area 
                   type="monotone" 
                   dataKey="revenue" 
-                  stroke="hsl(var(--primary))" 
-                  fill="hsl(var(--primary) / 0.2)"
+                  stroke="hsl(var(--chart-primary))" 
+                  fill="hsl(var(--chart-primary) / 0.2)"
                   strokeWidth={2}
                 />
               </AreaChart>
@@ -182,10 +182,10 @@ export function OverviewSection() {
               <PieChart>
                 <Pie
                   data={[
-                    { name: "Active Freelancers", value: 3450, color: "hsl(var(--success))" },
-                    { name: "Active Clients", value: 2890, color: "hsl(var(--info))" },
-                    { name: "Inactive Users", value: 1890, color: "hsl(var(--muted))" },
-                    { name: "Pending Verification", value: 526, color: "hsl(var(--warning))" }
+                    { name: "Active Freelancers", value: 3450, color: "hsl(var(--chart-success))" },
+                    { name: "Active Clients", value: 2890, color: "hsl(var(--chart-info))" },
+                    { name: "Inactive Users", value: 1890, color: "hsl(var(--chart-muted))" },
+                    { name: "Pending Verification", value: 526, color: "hsl(var(--chart-warning))" }
                   ]}
                   cx="50%"
                   cy="50%"
@@ -194,10 +194,10 @@ export function OverviewSection() {
                   label={({ name, value }) => `${name}: ${value}`}
                 >
                   {[
-                    { color: "hsl(var(--success))" },
-                    { color: "hsl(var(--info))" },
-                    { color: "hsl(var(--muted))" },
-                    { color: "hsl(var(--warning))" }
+                    { color: "hsl(var(--chart-success))" },
+                    { color: "hsl(var(--chart-info))" },
+                    { color: "hsl(var(--chart-muted))" },
+                    { color: "hsl(var(--chart-warning))" }
                   ].map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}

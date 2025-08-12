@@ -77,6 +77,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				chart: {
+					primary: 'hsl(var(--chart-primary))',
+					secondary: 'hsl(var(--chart-secondary))',
+					accent: 'hsl(var(--chart-accent))',
+					warning: 'hsl(var(--chart-warning))',
+					info: 'hsl(var(--chart-info))',
+					success: 'hsl(var(--chart-success))',
+					error: 'hsl(var(--chart-error))',
+					muted: 'hsl(var(--chart-muted))'
 				}
 			},
 			borderRadius: {

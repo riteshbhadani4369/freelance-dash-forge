@@ -272,8 +272,8 @@ export function CommissionReportsSection() {
                 <Area 
                   type="monotone" 
                   dataKey="commission" 
-                  stroke="hsl(var(--primary))" 
-                  fill="hsl(var(--primary) / 0.2)"
+                  stroke="hsl(var(--chart-primary))" 
+                  fill="hsl(var(--chart-primary) / 0.2)"
                   strokeWidth={2}
                 />
               </AreaChart>
@@ -311,21 +311,21 @@ export function CommissionReportsSection() {
                 <Line 
                   type="monotone" 
                   dataKey="standard" 
-                  stroke="hsl(var(--info))" 
+                  stroke="hsl(var(--chart-info))" 
                   strokeWidth={2}
                   name="Standard"
                 />
                 <Line 
                   type="monotone" 
                   dataKey="premium" 
-                  stroke="hsl(var(--warning))" 
+                  stroke="hsl(var(--chart-warning))" 
                   strokeWidth={2}
                   name="Premium"
                 />
                 <Line 
                   type="monotone" 
                   dataKey="enterprise" 
-                  stroke="hsl(var(--primary))" 
+                  stroke="hsl(var(--chart-primary))" 
                   strokeWidth={2}
                   name="Enterprise"
                 />
@@ -366,7 +366,7 @@ export function CommissionReportsSection() {
               />
               <Bar 
                 dataKey="commission" 
-                fill="hsl(var(--success))"
+                fill="hsl(var(--chart-success))"
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>

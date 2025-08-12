@@ -287,22 +287,22 @@ export function TaxReportsSection() {
                   type="monotone" 
                   dataKey="gst" 
                   stackId="1"
-                  stroke="hsl(var(--info))" 
-                  fill="hsl(var(--info) / 0.3)"
+                  stroke="hsl(var(--chart-info))" 
+                  fill="hsl(var(--chart-info) / 0.3)"
                 />
                 <Area 
                   type="monotone" 
                   dataKey="vat" 
                   stackId="1"
-                  stroke="hsl(var(--success))" 
-                  fill="hsl(var(--success) / 0.3)"
+                  stroke="hsl(var(--chart-success))" 
+                  fill="hsl(var(--chart-success) / 0.3)"
                 />
                 <Area 
                   type="monotone" 
                   dataKey="income" 
                   stackId="1"
-                  stroke="hsl(var(--warning))" 
-                  fill="hsl(var(--warning) / 0.3)"
+                  stroke="hsl(var(--chart-warning))" 
+                  fill="hsl(var(--chart-warning) / 0.3)"
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -340,7 +340,7 @@ export function TaxReportsSection() {
                 />
                 <Bar 
                   dataKey="total" 
-                  fill="hsl(var(--primary))"
+                  fill="hsl(var(--chart-primary))"
                   radius={[4, 4, 0, 0]}
                 />
               </BarChart>

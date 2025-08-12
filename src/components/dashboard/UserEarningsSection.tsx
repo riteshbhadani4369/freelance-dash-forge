@@ -306,7 +306,7 @@ export function UserEarningsSection() {
                 />
                 <Bar 
                   dataKey="earnings" 
-                  fill="hsl(var(--success))"
+                  fill="hsl(var(--chart-success))"
                   radius={[0, 4, 4, 0]}
                 />
               </BarChart>
@@ -341,7 +341,7 @@ export function UserEarningsSection() {
                 />
                 <Bar 
                   dataKey="spent" 
-                  fill="hsl(var(--info))"
+                  fill="hsl(var(--chart-info))"
                   radius={[0, 4, 4, 0]}
                 />
               </BarChart>

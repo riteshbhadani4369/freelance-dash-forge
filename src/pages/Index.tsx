@@ -21,6 +21,7 @@ const Index = () => {
       case "overview":
         return <OverviewSection />
       case "users":
+        return <UserManagementSection />
       case "users-list":
         return <UserManagementSection />
       case "users-analytics":
@@ -28,11 +29,15 @@ const Index = () => {
       case "users-verification":
         return <UserManagementSection />
       case "jobs":
+        return <JobManagementSection />
       case "jobs-active":
+        return <JobManagementSection />
       case "jobs-completed":
+        return <JobManagementSection />
       case "jobs-disputes":
         return <JobManagementSection />
       case "transactions":
+        return <TransactionSection />
       case "transactions-overview":
         return <TransactionSection />
       case "transactions-escrow":

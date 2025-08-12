@@ -264,15 +264,15 @@ export function EscrowBalanceSection() {
                 <Area 
                   type="monotone" 
                   dataKey="held" 
-                  stroke="hsl(var(--warning))" 
-                  fill="hsl(var(--warning) / 0.2)"
+                  stroke="hsl(var(--chart-warning))" 
+                  fill="hsl(var(--chart-warning) / 0.2)"
                   strokeWidth={2}
                 />
                 <Area 
                   type="monotone" 
                   dataKey="released" 
-                  stroke="hsl(var(--success))" 
-                  fill="hsl(var(--success) / 0.2)"
+                  stroke="hsl(var(--chart-success))" 
+                  fill="hsl(var(--chart-success) / 0.2)"
                   strokeWidth={2}
                 />
               </AreaChart>
@@ -311,7 +311,7 @@ export function EscrowBalanceSection() {
                 />
                 <Bar 
                   dataKey="amount" 
-                  fill="hsl(var(--primary))"
+                  fill="hsl(var(--chart-primary))"
                   radius={[4, 4, 0, 0]}
                 />
               </BarChart>

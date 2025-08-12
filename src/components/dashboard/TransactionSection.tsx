@@ -305,15 +305,15 @@ export function TransactionSection() {
                 <Area 
                   type="monotone" 
                   dataKey="revenue" 
-                  stroke="hsl(var(--primary))" 
-                  fill="hsl(var(--primary) / 0.2)"
+                  stroke="hsl(var(--chart-primary))" 
+                  fill="hsl(var(--chart-primary) / 0.2)"
                   strokeWidth={2}
                 />
                 <Area 
                   type="monotone" 
                   dataKey="commission" 
-                  stroke="hsl(var(--warning))" 
-                  fill="hsl(var(--warning) / 0.2)"
+                  stroke="hsl(var(--chart-warning))" 
+                  fill="hsl(var(--chart-warning) / 0.2)"
                   strokeWidth={2}
                 />
               </AreaChart>
@@ -349,7 +349,7 @@ export function TransactionSection() {
                 />
                 <Bar 
                   dataKey="count" 
-                  fill="hsl(var(--accent))"
+                  fill="hsl(var(--chart-secondary))"
                   radius={[4, 4, 0, 0]}
                 />
               </BarChart>
